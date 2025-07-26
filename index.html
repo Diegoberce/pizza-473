@@ -10,7 +10,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8; /* Un color de fondo suave */
+            background-color: #f0f4f8;
         }
         .pizza-card {
             transition: transform 0.2s ease-in-out;
@@ -18,7 +18,6 @@
         .pizza-card:hover {
             transform: translateY(-5px);
         }
-        /* Estilo para el input de cantidad */
         input[type="number"]::-webkit-inner-spin-button,
         input[type="number"]::-webkit-outer-spin-button {
             -webkit-appearance: none;
@@ -128,14 +127,10 @@
                 </ul>
                 <p class="text-3xl font-bold text-red-700 text-right">Total: <span id="total-price">$0</span></p>
             </div>
-
-            <button onclick="sendWhatsAppOrder()" class="w-full bg-green-500 text-white py-4 rounded-xl text-2xl font-bold hover:bg-green-600 transition-all duration-300 shadow-lg transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-400">
-                ¡Hacé tu pedido por WhatsApp!
-            </button>
         </section>
 
         <!-- Detalles Importantes -->
-        <section class="bg-blue-50 p-8 rounded-2xl shadow-inner border border-blue-200">
+        <section class="bg-blue-50 p-8 rounded-2xl shadow-inner border border-blue-200 mb-12">
             <h2 class="text-3xl font-bold text-blue-600 mb-6 text-center">⚠️ ¡ATENCIÓN! Detalles Importantes ⚠️</h2>
             <ul class="space-y-4 text-lg text-gray-700">
                 <li class="flex items-center">
@@ -146,16 +141,31 @@
                     <svg class="w-6 h-6 text-blue-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path></svg>
                     <span class="font-semibold">Retiro en la escuela:</span> Viernes 08 de agosto a partir de las 15:00 hs.
                 </li>
-                <li class="flex items-center">
-                    <svg class="w-6 h-6 text-blue-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 002-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 2a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
-                    <span class="font-semibold">Forma de Pago:</span> ¡Solo aceptamos transferencias! (Datos Alias: <span class="font-bold text-red-500">pizza.473</span> 😉)
+                <li class="flex flex-col items-center">
+                    <div class="flex items-center mb-2">
+                        <svg class="w-6 h-6 text-blue-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 002-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 2a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+                        <span class="font-semibold">Forma de Pago:</span> ¡Solo aceptamos transferencias!
+                    </div>
+                    <!-- Alias destacado y centrado -->
+                    <div class="flex justify-center w-full">
+                        <span class="block text-center text-3xl font-extrabold text-red-600 bg-red-100 rounded-xl px-6 py-2 shadow-lg mt-2 animate-pulse select-all">
+                            Alias: pizza.473
+                        </span>
+                    </div>
+                    <span class="mt-2 text-gray-500 text-sm">Copiá el alias y pagá desde tu app bancaria 😉</span>
                 </li>
             </ul>
         </section>
+
+        <!-- Botón de WhatsApp al final -->
+        <div class="mb-2">
+            <button onclick="sendWhatsAppOrder()" class="w-full bg-green-500 text-white py-4 rounded-xl text-2xl font-bold hover:bg-green-600 transition-all duration-300 shadow-lg transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-400">
+                ¡Hacé tu pedido por WhatsApp!
+            </button>
+        </div>
     </div>
 
     <script>
-        // Definición de las promociones con sus precios y nombres
         const promos = {
             promo1: { name: '1 Muzzarella', price: 6500 },
             promo2: { name: '1 Especial', price: 7200 },
@@ -164,31 +174,22 @@
             promo5: { name: '1 Muzzarella y 1 Especial', price: 12000 }
         };
 
-        /**
-         * Actualiza la cantidad de una promoción y recalcula el total.
-         * @param {string} promoId - El ID de la promoción (ej. 'promo1').
-         * @param {number} change - El cambio a aplicar a la cantidad (ej. 1 para aumentar, -1 para disminuir).
-         */
         function updateQuantity(promoId, change) {
             const input = document.getElementById(`${promoId}-qty`);
             let currentQty = parseInt(input.value);
             let newQty = currentQty + change;
             if (newQty < 0) {
-                newQty = 0; // Asegura que la cantidad no sea negativa
+                newQty = 0;
             }
             input.value = newQty;
-            calculateTotal(); // Recalcula el total después de cada cambio
+            calculateTotal();
         }
 
-        /**
-         * Calcula el total del pedido y actualiza el resumen en la interfaz.
-         */
         function calculateTotal() {
             let total = 0;
             const summaryList = document.getElementById('summary-list');
-            summaryList.innerHTML = ''; // Limpiar el resumen anterior
+            summaryList.innerHTML = '';
 
-            // Iterar sobre cada promoción para calcular el total y construir el resumen
             for (const id in promos) {
                 const qtyInput = document.getElementById(`${id}-qty`);
                 const quantity = parseInt(qtyInput.value);
@@ -197,27 +198,21 @@
                     const promo = promos[id];
                     total += promo.price * quantity;
 
-                    // Añadir el item al resumen
                     const listItem = document.createElement('li');
                     listItem.textContent = `${quantity} x ${promo.name} - $${(promo.price * quantity).toLocaleString('es-AR')}`;
                     summaryList.appendChild(listItem);
                 }
             }
 
-            // Actualizar el precio total en la interfaz
             document.getElementById('total-price').textContent = `$${total.toLocaleString('es-AR')}`;
         }
 
-        /**
-         * Genera el mensaje de WhatsApp con el resumen del pedido y abre el enlace.
-         */
         function sendWhatsAppOrder() {
             const customerName = document.getElementById('customer-name').value.trim();
             const customerWhatsapp = document.getElementById('customer-whatsapp').value.trim();
             let orderDetails = [];
             let totalAmount = 0;
 
-            // Recopilar los detalles del pedido
             for (const id in promos) {
                 const qtyInput = document.getElementById(`${id}-qty`);
                 const quantity = parseInt(qtyInput.value);
@@ -229,13 +224,11 @@
                 }
             }
 
-            // Validar que se haya seleccionado al menos una pizza
             if (orderDetails.length === 0) {
                 alert("Por favor, selecciona al menos una pizza para tu pedido.");
                 return;
             }
 
-            // Construir el mensaje de WhatsApp
             let message = `¡Hola! Quiero hacer un pedido de pizza para la EETPySO 473.\n\n`;
             if (customerName) {
                 message += `Mi nombre es: ${customerName}\n`;
@@ -248,15 +241,12 @@
             message += `\n\nTotal a pagar: $${totalAmount.toLocaleString('es-AR')}\n`;
             message += `\n¡Gracias!`;
 
-            // Codificar el mensaje para la URL de WhatsApp
             const encodedMessage = encodeURIComponent(message);
-            const whatsappNumber = '5493415462593'; // Número de WhatsApp de contacto
+            const whatsappNumber = '5493415462593';
 
-            // Abrir el enlace de WhatsApp
             window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
         }
 
-        // Inicializar el cálculo del total al cargar la página
         document.addEventListener('DOMContentLoaded', calculateTotal);
     </script>
 </body>
