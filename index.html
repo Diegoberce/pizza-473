@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pedido de Pizza - EETPySO 473</title>
-    <!-- Carga de Tailwind CSS -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f0f4f8;
-            /* Fondo secundario para fallback */
         }
         .pizza-card {
             transition: transform 0.2s ease-in-out;
@@ -27,9 +26,8 @@
         input[type="number"] {
             -moz-appearance: textfield;
         }
-        /* Fondo del logo de la escuela */
         .bg-logo-school {
-            background: url('image1') no-repeat center center;
+            background: url('Logotipo nuevo.jpg') no-repeat center center;
             background-size: 60vw;
             opacity: 0.09;
             position: absolute;
@@ -37,7 +35,6 @@
             z-index: 0;
             pointer-events: none;
         }
-        /* Para asegurar contraste en móviles */
         @media (max-width: 640px) {
             .bg-logo-school {
                 background-size: 120vw;
@@ -48,23 +45,20 @@
 <body class="bg-gradient-to-br from-red-50 to-orange-100 min-h-screen flex items-center justify-center py-10 px-4 relative overflow-hidden">
     <!-- Fondo logo escuela -->
     <div class="bg-logo-school"></div>
-
     <div class="max-w-4xl w-full bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-200 relative z-10">
         <!-- Imagen de pizza humeante -->
         <div class="flex flex-col items-center mb-2">
-            <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=800&q=80"
+            <img src="pizza_deliciosa.png"
                  alt="Pizza humeante deliciosa"
                  class="rounded-2xl shadow-lg w-full max-w-xs sm:max-w-md mb-4 object-cover"
                  style="mix-blend-mode: multiply;">
         </div>
-
         <!-- Encabezado -->
         <header class="text-center mb-10">
             <h1 class="text-5xl font-extrabold text-red-600 mb-4 animate-pulse drop-shadow-lg">🍕✨ ¡Pizza para tu panza! ✨🍕</h1>
             <p class="text-xl text-gray-700 leading-relaxed">¡Hola, comunidad EETPySO 473! ¿Te antojaste de una pizza y encima querés hacer una buena obra? ¡Llegó la oportunidad perfecta!</p>
             <p class="text-lg text-gray-600 mt-2">¡Estamos juntando fondos para adquirir un elemento del taller de carpintería!</p>
         </header>
-
         <!-- Sección de Promociones -->
         <section class="mb-12">
             <h2 class="text-4xl font-bold text-center text-orange-500 mb-8">¡Nuestras Promos que te harán delirar! 🤤</h2>
@@ -81,7 +75,6 @@
                         <button onclick="updateQuantity('promo1', 1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-xl font-bold hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">+</button>
                     </div>
                 </div>
-
                 <!-- Promo 2 -->
                 <div class="pizza-card bg-white p-6 rounded-2xl shadow-lg border border-red-200 flex flex-col items-center text-center">
                     <img src="https://placehold.co/150x100/fecaca/dc2626?text=Especial" alt="Pizza Especial" class="rounded-lg mb-4 shadow-md">
@@ -94,7 +87,6 @@
                         <button onclick="updateQuantity('promo2', 1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-xl font-bold hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">+</button>
                     </div>
                 </div>
-
                 <!-- Promo 3 -->
                 <div class="pizza-card bg-white p-6 rounded-2xl shadow-lg border border-red-200 flex flex-col items-center text-center">
                     <img src="https://placehold.co/150x100/fecaca/dc2626?text=2+Muzzas" alt="2 Pizzas Muzzarella" class="rounded-lg mb-4 shadow-md">
@@ -107,7 +99,6 @@
                         <button onclick="updateQuantity('promo3', 1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-xl font-bold hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">+</button>
                     </div>
                 </div>
-
                 <!-- Promo 4 -->
                 <div class="pizza-card bg-white p-6 rounded-2xl shadow-lg border border-red-200 flex flex-col items-center text-center">
                     <img src="https://placehold.co/150x100/fecaca/dc2626?text=2+Especiales" alt="2 Pizzas Especiales" class="rounded-lg mb-4 shadow-md">
@@ -120,7 +111,6 @@
                         <button onclick="updateQuantity('promo4', 1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-xl font-bold hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">+</button>
                     </div>
                 </div>
-
                 <!-- Promo 5 -->
                 <div class="pizza-card bg-white p-6 rounded-2xl shadow-lg border border-red-200 flex flex-col items-center text-center">
                     <img src="https://placehold.co/150x100/fecaca/dc2626?text=Muzza+y+Especial" alt="Pizza Muzzarella y Especial" class="rounded-lg mb-4 shadow-md">
@@ -135,7 +125,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Resumen del Pedido y Datos del Cliente -->
         <section class="mb-12 bg-orange-50 p-8 rounded-2xl shadow-inner border border-orange-200">
             <h2 class="text-3xl font-bold text-orange-600 mb-6 text-center">Tu Pedido</h2>
@@ -147,16 +136,12 @@
                 <label for="customer-whatsapp" class="block text-gray-700 text-lg font-medium mb-2">Tu WhatsApp (opcional):</label>
                 <input type="tel" id="customer-whatsapp" placeholder="Ej: +5493415462593" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-transparent text-lg">
             </div>
-
             <div id="order-summary" class="bg-white p-6 rounded-xl shadow-md border border-gray-200 mb-6">
                 <h3 class="text-2xl font-semibold text-gray-800 mb-4">Detalle del Pedido:</h3>
-                <ul id="summary-list" class="list-disc list-inside text-lg text-gray-700 mb-4">
-                    <!-- Los elementos del pedido se insertarán aquí con JS -->
-                </ul>
+                <ul id="summary-list" class="list-disc list-inside text-lg text-gray-700 mb-4"></ul>
                 <p class="text-3xl font-bold text-red-700 text-right">Total: <span id="total-price">$0</span></p>
             </div>
         </section>
-
         <!-- Detalles Importantes Mejorados para Móvil -->
         <section class="bg-blue-50 p-4 sm:p-8 rounded-2xl shadow-inner border border-blue-200 mb-12">
             <h2 class="text-3xl font-bold text-blue-600 mb-6 text-center">⚠️ ¡ATENCIÓN! Detalles Importantes ⚠️</h2>
@@ -179,7 +164,6 @@
                         Viernes 08 de agosto a partir de las 15:00 hs.
                     </div>
                 </li>
-                <!-- Forma de pago mejor ordenada -->
                 <li class="flex flex-col items-center bg-blue-100 border border-blue-200 rounded-lg p-3">
                     <h3 class="text-xl font-bold text-blue-700 text-center mb-1 w-full">Forma de Pago</h3>
                     <div class="text-center text-base text-gray-700 mb-2 w-full">¡Solo aceptamos transferencias!</div>
@@ -192,7 +176,6 @@
                 </li>
             </ul>
         </section>
-
         <!-- Botón de WhatsApp al final -->
         <div class="mb-2">
             <button onclick="sendWhatsAppOrder()" class="w-full bg-green-500 text-white py-4 rounded-xl text-2xl font-bold hover:bg-green-600 transition-all duration-300 shadow-lg transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-400">
@@ -200,7 +183,6 @@
             </button>
         </div>
     </div>
-
     <script>
         const promos = {
             promo1: { name: '1 Muzzarella', price: 6500 },
@@ -209,7 +191,6 @@
             promo4: { name: '2 Especiales', price: 13000 },
             promo5: { name: '1 Muzzarella y 1 Especial', price: 12000 }
         };
-
         function updateQuantity(promoId, change) {
             const input = document.getElementById(`${promoId}-qty`);
             let currentQty = parseInt(input.value);
@@ -220,51 +201,41 @@
             input.value = newQty;
             calculateTotal();
         }
-
         function calculateTotal() {
             let total = 0;
             const summaryList = document.getElementById('summary-list');
             summaryList.innerHTML = '';
-
             for (const id in promos) {
                 const qtyInput = document.getElementById(`${id}-qty`);
                 const quantity = parseInt(qtyInput.value);
-
                 if (quantity > 0) {
                     const promo = promos[id];
                     total += promo.price * quantity;
-
                     const listItem = document.createElement('li');
                     listItem.textContent = `${quantity} x ${promo.name} - $${(promo.price * quantity).toLocaleString('es-AR')}`;
                     summaryList.appendChild(listItem);
                 }
             }
-
             document.getElementById('total-price').textContent = `$${total.toLocaleString('es-AR')}`;
         }
-
         function sendWhatsAppOrder() {
             const customerName = document.getElementById('customer-name').value.trim();
             const customerWhatsapp = document.getElementById('customer-whatsapp').value.trim();
             let orderDetails = [];
             let totalAmount = 0;
-
             for (const id in promos) {
                 const qtyInput = document.getElementById(`${id}-qty`);
                 const quantity = parseInt(qtyInput.value);
-
                 if (quantity > 0) {
                     const promo = promos[id];
                     orderDetails.push(`${quantity} x ${promo.name} ($${(promo.price * quantity).toLocaleString('es-AR')})`);
                     totalAmount += promo.price * quantity;
                 }
             }
-
             if (orderDetails.length === 0) {
                 alert("Por favor, selecciona al menos una pizza para tu pedido.");
                 return;
             }
-
             let message = `¡Hola! Quiero hacer un pedido de pizza para la EETPySO 473.\n\n`;
             if (customerName) {
                 message += `Mi nombre es: ${customerName}\n`;
@@ -276,13 +247,10 @@
             message += orderDetails.join('\n');
             message += `\n\nTotal a pagar: $${totalAmount.toLocaleString('es-AR')}\n`;
             message += `\n¡Gracias!`;
-
             const encodedMessage = encodeURIComponent(message);
             const whatsappNumber = '5493415462593';
-
             window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
         }
-
         document.addEventListener('DOMContentLoaded', calculateTotal);
     </script>
 </body>
