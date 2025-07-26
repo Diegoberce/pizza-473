@@ -129,22 +129,33 @@
             </div>
         </section>
 
-        <!-- Detalles Importantes -->
-        <section class="bg-blue-50 p-8 rounded-2xl shadow-inner border border-blue-200 mb-12">
+        <!-- Detalles Importantes Mejorados para Móvil -->
+        <section class="bg-blue-50 p-4 sm:p-8 rounded-2xl shadow-inner border border-blue-200 mb-12">
             <h2 class="text-3xl font-bold text-blue-600 mb-6 text-center">⚠️ ¡ATENCIÓN! Detalles Importantes ⚠️</h2>
             <ul class="space-y-4 text-lg text-gray-700">
-                <li class="flex items-center">
-                    <svg class="w-6 h-6 text-blue-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l3 3a1 1 0 001.414-1.414L11 9.586V6z" clip-rule="evenodd"></path></svg>
-                    <span class="font-semibold">Pedidos hasta el:</span> 01 de agosto
+                <li class="flex flex-col sm:flex-row items-start sm:items-center gap-2 bg-blue-100 border border-blue-200 rounded-lg p-3">
+                    <span class="flex-shrink-0">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l3 3a1 1 0 001.414-1.414L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                    </span>
+                    <div>
+                        <span class="font-semibold block sm:inline">Pedidos hasta el:</span>
+                        01 de agosto
+                    </div>
                 </li>
-                <li class="flex items-center">
-                    <svg class="w-6 h-6 text-blue-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path></svg>
-                    <span class="font-semibold">Retiro en la escuela:</span> Viernes 08 de agosto a partir de las 15:00 hs.
+                <li class="flex flex-col sm:flex-row items-start sm:items-center gap-2 bg-blue-100 border border-blue-200 rounded-lg p-3">
+                    <span class="flex-shrink-0">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path></svg>
+                    </span>
+                    <div>
+                        <span class="font-semibold block sm:inline">Retiro en la escuela:</span>
+                        Viernes 08 de agosto a partir de las 15:00 hs.
+                    </div>
                 </li>
-                <li class="flex flex-col items-center">
-                    <div class="flex items-center mb-2">
-                        <svg class="w-6 h-6 text-blue-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 002-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 2a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
-                        <span class="font-semibold">Forma de Pago:</span> ¡Solo aceptamos transferencias!
+                <li class="flex flex-col items-center bg-blue-100 border border-blue-200 rounded-lg p-3">
+                    <div class="flex flex-row items-center gap-2 w-full justify-center">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 002-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 2a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+                        <span class="font-semibold">Forma de Pago:</span>
+                        <span>¡Solo aceptamos transferencias!</span>
                     </div>
                     <!-- Alias destacado y centrado -->
                     <div class="flex justify-center w-full">
@@ -152,7 +163,7 @@
                             Alias: pizza.473
                         </span>
                     </div>
-                    <span class="mt-2 text-gray-500 text-sm">Copiá el alias y pagá desde tu app bancaria 😉</span>
+                    <span class="mt-2 text-gray-500 text-sm text-center">Copiá el alias y pagá desde tu app bancaria 😉</span>
                 </li>
             </ul>
         </section>
