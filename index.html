@@ -11,6 +11,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f0f4f8;
+            /* Fondo secundario para fallback */
         }
         .pizza-card {
             transition: transform 0.2s ease-in-out;
@@ -26,13 +27,40 @@
         input[type="number"] {
             -moz-appearance: textfield;
         }
+        /* Fondo del logo de la escuela */
+        .bg-logo-school {
+            background: url('image1') no-repeat center center;
+            background-size: 60vw;
+            opacity: 0.09;
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+        /* Para asegurar contraste en móviles */
+        @media (max-width: 640px) {
+            .bg-logo-school {
+                background-size: 120vw;
+            }
+        }
     </style>
 </head>
-<body class="bg-gradient-to-br from-red-50 to-orange-100 min-h-screen flex items-center justify-center py-10 px-4">
-    <div class="max-w-4xl w-full bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-200">
+<body class="bg-gradient-to-br from-red-50 to-orange-100 min-h-screen flex items-center justify-center py-10 px-4 relative overflow-hidden">
+    <!-- Fondo logo escuela -->
+    <div class="bg-logo-school"></div>
+
+    <div class="max-w-4xl w-full bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-200 relative z-10">
+        <!-- Imagen de pizza humeante -->
+        <div class="flex flex-col items-center mb-2">
+            <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=800&q=80"
+                 alt="Pizza humeante deliciosa"
+                 class="rounded-2xl shadow-lg w-full max-w-xs sm:max-w-md mb-4 object-cover"
+                 style="mix-blend-mode: multiply;">
+        </div>
+
         <!-- Encabezado -->
         <header class="text-center mb-10">
-            <h1 class="text-5xl font-extrabold text-red-600 mb-4 animate-pulse">🍕✨ ¡Pizza para tu panza! ✨🍕</h1>
+            <h1 class="text-5xl font-extrabold text-red-600 mb-4 animate-pulse drop-shadow-lg">🍕✨ ¡Pizza para tu panza! ✨🍕</h1>
             <p class="text-xl text-gray-700 leading-relaxed">¡Hola, comunidad EETPySO 473! ¿Te antojaste de una pizza y encima querés hacer una buena obra? ¡Llegó la oportunidad perfecta!</p>
             <p class="text-lg text-gray-600 mt-2">¡Estamos juntando fondos para adquirir un elemento del taller de carpintería!</p>
         </header>
@@ -151,21 +179,16 @@
                         Viernes 08 de agosto a partir de las 15:00 hs.
                     </div>
                 </li>
+                <!-- Forma de pago mejor ordenada -->
                 <li class="flex flex-col items-center bg-blue-100 border border-blue-200 rounded-lg p-3">
-                 <div class="flex flex-col items-center w-full justify-center">
-    <div class="flex flex-row items-center gap-2">
-        <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-500" ...></svg>
-        <span class="font-semibold">Forma de Pago:</span>
-    </div>
-    <span class="mt-1">¡Solo aceptamos transferencias!</span>
-</div>
-                    <!-- Alias destacado y centrado -->
+                    <h3 class="text-xl font-bold text-blue-700 text-center mb-1 w-full">Forma de Pago</h3>
+                    <div class="text-center text-base text-gray-700 mb-2 w-full">¡Solo aceptamos transferencias!</div>
                     <div class="flex justify-center w-full">
                         <span class="block text-center text-3xl font-extrabold text-red-600 bg-red-100 rounded-xl px-6 py-2 shadow-lg mt-2 animate-pulse select-all">
                             Alias: pizza.473
                         </span>
                     </div>
-                    <span class="mt-2 text-gray-500 text-sm text-center">Copiá el alias y pagá desde tu app bancaria 😉</span>
+                    <span class="mt-2 text-gray-500 text-sm text-center w-full">Copiá el alias y pagá desde tu app bancaria 😉</span>
                 </li>
             </ul>
         </section>
